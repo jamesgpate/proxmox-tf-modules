@@ -71,7 +71,7 @@ variable "server_ips" {
 
 variable "server_gateway" {
   description = "IP gateway for servers. Should be null if using DHCP, and set to the correct gateway if setting static IPs"
-  type        = string
+  type        = list(string)
   default     = null
 }
 

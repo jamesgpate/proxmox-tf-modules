@@ -200,7 +200,7 @@ resource "proxmox_virtual_environment_vm" "k3s_bootstrap_node" {
     ip_config {
       ipv4 {
         address = var.server_ips != null ? var.server_ips[0] : "dhcp"
-        gateway = var.server_gateway
+        gateway = var.server_gateway[0]
       }
     }
 
@@ -261,7 +261,7 @@ resource "proxmox_virtual_environment_vm" "k3s_server_nodes" {
     ip_config {
       ipv4 {
         address = var.server_ips == null ? "dhcp" : var.bootstrap_cluster ? var.server_ips[count.index + 1] : var.server_ips[count.index]
-        gateway = var.server_gateway
+        gateway = var.server_gateway[count.index + 1]
       }
     }
 
