@@ -195,3 +195,9 @@ variable "vga_memory" {
   type        = number
   default     = 16
 }
+
+variable "k3s_exec" {
+  description = "Arguments to pass to k3s"
+  type        = string
+  default     = ""
+}
